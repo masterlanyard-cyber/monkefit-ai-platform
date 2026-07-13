@@ -1,0 +1,47 @@
+id: DECISION-LEAD-QUALIFICATION
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+
+required_fields:
+  - name
+  - phone
+  - city
+  - product_interest
+  - use_case
+  - quantity
+  - purchase_timeline
+
+optional_fields:
+  - company_name
+  - budget
+  - installation_address
+  - source_channel
+
+use_case_options:
+  - personal
+  - semi-commercial
+  - commercial
+
+purchase_timeline_options:
+  - this_week
+  - this_month
+  - researching
+
+routing:
+  ready_to_buy:
+    destination: Niken
+    role: Sales and Admin
+  quotation_request:
+    destination: Niken
+    role: Sales and Admin
+  project_request:
+    destination: Niken
+    role: Sales and Admin
+
+rules:
+  - Never request information already provided in the conversation.
+  - Collect only the minimum information needed before handover.
+  - Do not promise discounts, stock, or delivery dates without confirmation.
