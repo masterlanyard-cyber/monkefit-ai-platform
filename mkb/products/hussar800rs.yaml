@@ -1,0 +1,52 @@
+id: PRODUCT-HUSSAR800RS
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 0.94
+sources:
+  - Monkefit Catalog 2024
+  - internal_sales_team
+  - monkefit.com_except_shop_prices
+
+identity:
+  sku: HUSSAR800RS
+  name: Hussar 800RS
+  category: self_powered_curved_treadmill
+  positioning: semi_commercial
+
+recommended_for:
+  - personal_training_studio
+  - small_gym
+  - hotel_gym
+  - apartment_gym
+  - office_gym
+
+specifications:
+  product_weight_kg: 66
+  running_surface_cm: 150x40
+  max_speed_kmh: 25
+  max_user_weight_kg: 150
+  foldable: true
+  electricity_required: false
+  bluetooth: true
+  app_and_smartwatch_compatible: true
+  magnetic_resistance_levels: 3
+  frame: steel
+  warranty_years: 1
+
+key_benefits:
+  - self_powered_and_does_not_require_electricity
+  - suitable_for_areas_with_frequent_power_outages
+  - no_electricity_operating_cost
+  - supports_walk_backward_walk_jog_and_sprint
+  - foldable_for_more_flexible_space_management
+  - suitable_for_semi_commercial_usage
+  - calorie_burn_claim_up_to_30_percent_higher_than_motorized_treadmill_under_comparable_conditions
+
+sales_notes:
+  main_buying_trigger: electricity_savings
+  competitors:
+    - Woodway
+    - AssaultRunner
+  competitor_positioning: premium_brands_with_higher_investment_cost
