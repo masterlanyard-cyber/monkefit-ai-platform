@@ -1,0 +1,54 @@
+id: PRODUCT-HUSSAR300RS
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 0.97
+sources:
+  - Monkefit Catalog 2024
+  - Hussar300RS user manual
+  - internal_sales_team
+  - internal_service_team
+  - monkefit.com_except_shop_prices
+
+identity:
+  sku: HUSSAR300RS
+  name: Hussar 300RS
+  category: self_powered_curved_treadmill
+  positioning: personal_use
+
+recommended_for:
+  - home_use
+  - individual_training
+  - family_use
+  - beginner_user
+
+specifications:
+  product_weight_kg: 36
+  running_surface_cm: 130x40
+  max_speed_kmh: 22
+  max_user_weight_kg: 150
+  foldable: true
+  electricity_required: false
+  bluetooth: false
+  magnetic_resistance_levels: 0
+  monitor_power: battery
+  warranty_years: 1
+
+key_benefits:
+  - self_powered_and_does_not_require_electricity
+  - suitable_for_areas_with_frequent_power_outages
+  - no_electricity_operating_cost
+  - foldable_and_easy_to_move
+  - suitable_for_beginner_and_home_use
+  - improves_power_speed_and_agility
+  - calorie_burn_claim_up_to_30_percent_higher_than_motorized_treadmill_under_comparable_conditions
+
+sales_notes:
+  main_buying_trigger: electricity_savings
+  best_fit_rule: recommend_first_for_personal_or_home_use
+
+service_notes:
+  common_issue: slat_running_belt_can_shift
+  adjustment_difficulty: customer_may_find_belt_adjustment_difficult
+  escalation_required_when_adjustment_fails: true
