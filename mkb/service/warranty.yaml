@@ -1,0 +1,23 @@
+id: SERVICE-WARRANTY
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+sources:
+  - internal_service_policy
+
+policy:
+  duration_years: 1
+  covered:
+    - spare_parts
+    - service_labor
+  customer_pays:
+    - technician_transport_cost
+  approval_required: true
+
+ai_rules:
+  - explain_coverage_clearly
+  - do_not_approve_claims
+  - collect_customer_name_phone_city_product_invoice_and_issue_media
+  - escalate_claims_and_complaints_to_human_admin
