@@ -1,0 +1,48 @@
+id: MKB-PERSONA-ENGINE
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+personas:
+  HOME_USER:
+    signals:
+      - rumah
+      - pribadi
+      - keluarga
+    recommended_product: HUSSAR300RS
+
+  PERSONAL_TRAINING_STUDIO:
+    signals:
+      - personal training
+      - studio kecil
+      - semi komersial
+    recommended_product: HUSSAR800RS
+
+  COMMERCIAL_GYM:
+    signals:
+      - gym komersial
+      - member banyak
+      - penggunaan intensif
+    recommended_product: HUSSAR1000RS
+
+  HOTEL_OR_APARTMENT_GYM:
+    signals:
+      - hotel
+      - apartemen
+      - fasilitas penghuni
+    recommended_product: HUSSAR800RS
+    escalation_condition: high_daily_usage
+
+  CORPORATE_OR_PROJECT:
+    signals:
+      - perusahaan
+      - corporate gym
+      - PO
+      - quotation
+    workflow: project_sales
+
+rules:
+  - Persona is provisional until supported by customer context.
+  - Usage intensity takes priority over budget.
+  - Do not upsell to commercial equipment when personal-use equipment is sufficient.

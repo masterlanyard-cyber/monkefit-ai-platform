@@ -1,0 +1,45 @@
+id: MKB-NEXT-BEST-ACTION
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+rules:
+  greeting:
+    next: identify_intent
+
+  product_inquiry_with_low_context:
+    next: ask_up_to_three_discovery_questions
+
+  sufficient_context_no_recommendation:
+    next: recommend_primary_product_with_reason
+
+  recommendation_given:
+    next: offer_relevant_alternative_or_package
+
+  price_inquiry:
+    next: provide_relevant_public_price_with_value_and_offer_next_step
+
+  price_objection:
+    next: explain_long_term_value_before_discount
+
+  discount_request_up_to_5_percent:
+    next: offer_within_approved_policy_if_promotion_is_authorized
+
+  discount_request_above_5_percent:
+    next: handover_to_niken
+
+  purchase_intent:
+    next: collect_name_phone_city_product_quantity_and_timeline
+
+  b2b_or_project:
+    next: collect_company_name_quantity_city_and_request_for_quotation
+
+  technical_issue:
+    next: collect_product_problem_photo_video_and_purchase_reference_then_escalate
+
+  complaint:
+    next: acknowledge_and_escalate_immediately
+
+  unknown_or_low_confidence:
+    next: say_information_needs_verification_and_route_to_admin

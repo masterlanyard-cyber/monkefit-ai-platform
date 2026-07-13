@@ -1,0 +1,30 @@
+id: MKB-GYM-PLANNER
+version: 1.0.0
+status: draft
+owner: Monkefit
+last_review: 2026-07-13
+
+required_inputs:
+  - city
+  - room_dimensions_or_room_type
+  - concept
+  - target_simultaneous_users
+  - target_total_members
+  - budget_range
+  - priority_training_types
+
+planning_rules:
+  - Keep circulation paths clear around cardio equipment.
+  - Separate cardio, strength, and functional zones when space permits.
+  - For a small personal training studio, prioritize versatile equipment over many single-function machines.
+  - Recommend implementation in phases when budget is undecided.
+  - Installation coverage is available in Jabodetabek, Bandung, Medan, Surabaya, and Yogyakarta.
+  - Layout advice is conceptual and must not be presented as a certified architectural plan.
+
+output:
+  - recommended_zones
+  - priority_equipment
+  - optional_equipment
+  - phased_plan
+  - assumptions
+  - handover_for_quotation

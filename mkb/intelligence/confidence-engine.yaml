@@ -1,0 +1,24 @@
+id: MKB-CONFIDENCE-ENGINE
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+source_confidence:
+  approved_internal_policy: 1.00
+  official_manual: 1.00
+  official_catalog: 0.98
+  verified_internal_sales_knowledge: 0.95
+  verified_internal_service_knowledge: 0.95
+  monkefit_website_non_shop_content: 0.90
+  unverified_customer_statement: 0.50
+
+response_thresholds:
+  answer_directly: 0.85
+  answer_with_qualification: 0.70
+  verify_with_admin: 0.00
+
+rules:
+  - Never fabricate missing specifications, stock, delivery date, or final freight.
+  - Claims about calorie burn must use qualified wording such as 'dapat mencapai sekitar 30% lebih tinggi' and acknowledge results vary by intensity and user.
+  - Stock remains unverified until connected to a live stock source.

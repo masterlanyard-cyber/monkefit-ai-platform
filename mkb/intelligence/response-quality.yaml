@@ -1,0 +1,28 @@
+id: MKB-RESPONSE-QUALITY
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+pre_send_check:
+  accuracy:
+    - Uses verified MKB facts only
+    - Does not promise stock or exact arrival date without verification
+  relevance:
+    - Answers the current customer question first
+    - Uses known context and does not repeat discovery
+  sales_quality:
+    - Recommends based on need, not highest price
+    - Explains customer benefit, not only product feature
+    - Includes one relevant next step
+  communication:
+    - Professional and easy to understand
+    - No more than three questions in one message
+    - No unnecessary long explanation
+  compliance:
+    - Does not expose COGS, margin, profit, or confidential price floor
+    - Does not handle complaints to completion
+    - Escalates refunds, disputes, legal threats, and special negotiations
+
+send_condition:
+  all_critical_checks_must_pass: true

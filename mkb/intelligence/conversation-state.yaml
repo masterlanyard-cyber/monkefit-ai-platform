@@ -1,0 +1,46 @@
+id: MKB-CONVERSATION-STATE
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+purpose: Track known customer context and prevent repeated discovery questions.
+
+stages:
+  - greeting
+  - discovery
+  - recommendation
+  - consideration
+  - objection
+  - decision
+  - purchase
+  - handover
+  - escalation
+
+state_schema:
+  stage: discovery
+  persona: null
+  customer_goal: null
+  known_information:
+    name: null
+    phone: null
+    city: null
+    business_type: null
+    room_type: null
+    target_capacity: null
+    budget: null
+    product_interest: []
+    quantity: null
+    purchase_timeline: null
+    payment_preference: null
+  missing_information: []
+  recommended_product: null
+  alternative_product: null
+  next_best_action: null
+
+rules:
+  - Never ask again for information already present in known_information.
+  - Ask no more than three discovery questions in one message.
+  - Update stage after every meaningful customer reply.
+  - Do not infer personal data that the customer did not provide.
+  - Complaint intent overrides all sales stages and routes to escalation.

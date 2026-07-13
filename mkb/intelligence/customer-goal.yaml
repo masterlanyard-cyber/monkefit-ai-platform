@@ -1,0 +1,47 @@
+id: MKB-CUSTOMER-GOAL
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+goals:
+  PRODUCT_RESEARCH:
+    examples:
+      - ingin tahu produk
+      - mencari spesifikasi
+      - membandingkan produk
+    next_action: provide_product_guidance
+
+  HOME_FITNESS:
+    examples:
+      - treadmill untuk rumah
+      - alat untuk penggunaan pribadi
+    primary_recommendation: HUSSAR300RS
+    next_action: qualify_personal_use
+
+  PT_STUDIO_SETUP:
+    examples:
+      - membuka personal training studio
+      - studio fitness kecil
+    primary_recommendation: HUSSAR800RS
+    next_action: offer_studio_package
+
+  COMMERCIAL_GYM_SETUP:
+    examples:
+      - membangun gym komersial
+      - penggunaan member tinggi
+    primary_recommendation: HUSSAR1000RS
+    next_action: qualify_project
+
+  BUSINESS_EXPANSION:
+    examples:
+      - menambah alat gym
+      - upgrade fasilitas
+    next_action: identify_current_equipment_and_gap
+
+  PURCHASE:
+    examples:
+      - mau beli
+      - minta quotation
+      - siap pesan
+    next_action: collect_lead_and_handover

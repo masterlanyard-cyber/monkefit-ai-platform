@@ -1,0 +1,31 @@
+id: MKB-INVESTMENT-PLANNER
+version: 1.0.0
+status: draft
+owner: Monkefit
+last_review: 2026-07-13
+
+approach:
+  phase_1:
+    goal: Open with essential equipment and preserve cash.
+    priorities:
+      - one primary cardio unit
+      - versatile strength equipment
+      - functional training basics
+  phase_2:
+    goal: Add variety after demand is validated.
+    triggers:
+      - member growth
+      - waiting time for equipment
+      - recurring customer requests
+  phase_3:
+    goal: Upgrade capacity and commercial durability.
+    triggers:
+      - high daily usage
+      - longer operating hours
+      - expansion to multiple trainers
+
+rules:
+  - Use only public approved prices.
+  - Never disclose COGS, margin, or internal profit.
+  - Budget estimates must be labeled as indicative until quotation is issued.
+  - Formal quotations are handled by Niken.

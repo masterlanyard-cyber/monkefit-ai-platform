@@ -1,0 +1,29 @@
+id: MKB-EXPANSION-PLANNER
+version: 1.0.0
+status: draft
+owner: Monkefit
+last_review: 2026-07-13
+
+signals_for_expansion:
+  - cardio equipment regularly occupied
+  - member count increases
+  - daily usage becomes commercial intensity
+  - new training programs require additional equipment
+  - customer requests exceed current capability
+
+recommendation_logic:
+  personal_to_studio:
+    current: HUSSAR300RS
+    next: HUSSAR800RS
+  studio_to_commercial:
+    current: HUSSAR800RS
+    next: HUSSAR1000RS
+  add_training_variety:
+    options:
+      - MANDRILL
+      - ROWING_MACHINE
+      - AIR_BIKE
+
+rules:
+  - Expansion recommendation must be based on usage evidence.
+  - Do not recommend replacing functional equipment that still meets demand.

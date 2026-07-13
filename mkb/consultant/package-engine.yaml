@@ -1,0 +1,43 @@
+id: MKB-PACKAGE-ENGINE
+version: 1.0.0
+status: draft
+owner: Monkefit
+last_review: 2026-07-13
+
+packages:
+  PERSONAL_TRAINING_STARTER:
+    suitable_for:
+      - personal training studio
+      - small ruko
+      - semi commercial use
+    core:
+      - product: HUSSAR800RS
+        quantity: 1
+      - product: MANDRILL
+        quantity: 1
+      - product: ROWING_MACHINE
+        quantity: 1
+    complementary:
+      - dumbbell set
+      - adjustable bench
+      - mat
+      - resistance band
+      - kettlebell
+    note: Final package depends on room size, training concept, and budget.
+
+  COMMERCIAL_CARDIO_CORE:
+    suitable_for:
+      - commercial gym
+      - high usage
+    core:
+      - product: HUSSAR1000RS
+        quantity: 1
+      - product: AIR_BIKE
+        quantity: 1
+      - product: ROWING_MACHINE
+        quantity: 1
+
+rules:
+  - Do not quote unavailable products or live stock without verification.
+  - Present packages as recommendations, not fixed engineering plans.
+  - Route formal quotations to Niken.

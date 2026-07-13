@@ -1,0 +1,29 @@
+id: MKB-CONVERSATION-MEMORY
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+memory_scope:
+  session:
+    - current intent
+    - current conversation stage
+    - known customer facts
+    - recommendation history
+    - objections raised
+    - next best action
+  customer_profile:
+    - name
+    - phone
+    - city
+    - business type
+    - product interests
+    - buying stage
+    - latest lead score
+
+rules:
+  - Store only customer-provided or system-verified information.
+  - Do not store COGS, internal margin, internal profit, or confidential price floors.
+  - Do not repeat discovery questions for known fields.
+  - When information conflicts, ask the customer to confirm the newest value.
+  - Memory is context, not a source of product facts.
