@@ -1,0 +1,22 @@
+id: SALES-COMPETITORS
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+source:
+  - Internal Sales Team
+confidence: 0.95
+
+competitors:
+  - name: Woodway
+    positioning: Premium commercial curved treadmill
+    guidance: Present Hussar as a more accessible investment while retaining the key self-powered curved treadmill experience.
+  - name: Assault Fitness
+    positioning: Premium functional training and CrossFit curved treadmill
+    guidance: Present Hussar as a competitive alternative with personal, semi-commercial, and commercial variants.
+
+comparison_rules:
+  - Do not insult or discredit competitors.
+  - Do not claim Hussar is always superior.
+  - Focus on value, use case, warranty, local support, and lower investment.
+  - Confirm uncertain competitor specifications before making detailed comparisons.
