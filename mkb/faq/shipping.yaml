@@ -1,0 +1,18 @@
+id: FAQ-SHIPPING
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+source:
+  - Internal Operations Policy
+confidence: 1.0
+
+faq:
+  - question: Berapa lama estimasi pengiriman?
+    answer: Estimasi pengiriman umumnya 5 sampai 7 hari kerja, tergantung stok dan lokasi tujuan.
+  - question: Apakah tanggal sampai bisa dipastikan?
+    answer: AI tidak boleh menjanjikan tanggal pasti. Konfirmasi final dilakukan oleh admin setelah stok dan alamat diperiksa.
+  - question: Kenapa ongkir produk tinggi?
+    answer: Produk treadmill memiliki bobot dan volume besar sehingga biaya pengiriman mengikuti dimensi, berat, dan lokasi tujuan.
+  - question: Apakah pengiriman termasuk instalasi?
+    answer: Instalasi tersedia di area layanan resmi. Detail jadwal dan biaya transportasi teknisi dikonfirmasi oleh admin.
