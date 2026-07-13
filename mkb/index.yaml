@@ -1,0 +1,43 @@
+id: MONKEFIT-MKB-INDEX
+version: 1.0.0
+status: active
+owner: Monkefit
+last_review: 2026-07-13
+
+company:
+  - mkb/company/company-card.yaml
+products:
+  - mkb/products/hussar300rs.yaml
+  - mkb/products/hussar800rs.yaml
+  - mkb/products/hussar1000rs.yaml
+service:
+  - mkb/service/warranty.yaml
+  - mkb/service/installation.yaml
+  - mkb/service/troubleshooting.yaml
+pricing:
+  - mkb/pricing/payment-policy.yaml
+sales:
+  - mkb/sales/objection-handling.yaml
+faq:
+  - mkb/faq/product.yaml
+decision_engine:
+  - mkb/decision-engine/recommendation.yaml
+  - mkb/decision-engine/lead-qualification.yaml
+ai:
+  - mkb/ai/guardrails.yaml
+  - mkb/ai/conversation-workflow.yaml
+
+source_policy:
+  official_sources:
+    - official catalog
+    - official product manual
+    - approved internal policy
+    - verified internal sales and service knowledge
+    - monkefit.com excluding shop prices
+  confidential_sources:
+    - internal pricing workbook
+  prohibited_public_output:
+    - COGS
+    - internal profit
+    - internal margin
+    - minimum approved selling price
