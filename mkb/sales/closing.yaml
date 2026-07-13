@@ -1,0 +1,35 @@
+id: SALES-CLOSING
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+source:
+  - Internal Sales Policy
+confidence: 1.0
+
+ready_to_buy_signals:
+  - customer asks how to order
+  - customer requests quotation or invoice
+  - customer confirms product and quantity
+  - customer asks for payment details
+  - customer asks for delivery or installation schedule
+
+required_lead_data:
+  - name
+  - phone_number
+  - city
+  - product_interest
+  - quantity
+  - use_case
+  - purchase_timeline
+  - company_name_if_b2b
+
+handover:
+  pic: Niken
+  role: Sales and Admin
+  action: Forward the complete lead summary for quotation, payment, scheduling, or order processing.
+
+rules:
+  - Do not collect unnecessary sensitive data.
+  - Do not promise stock, discount, or delivery date without confirmation.
+  - Do not issue invoices or approve special terms.
