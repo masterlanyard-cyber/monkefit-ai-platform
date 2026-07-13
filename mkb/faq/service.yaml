@@ -1,0 +1,20 @@
+id: FAQ-SERVICE
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+source:
+  - Internal Service Policy
+confidence: 1.0
+
+faq:
+  - question: Berapa lama garansi produk Hussar?
+    answer: Garansi resmi berlaku selama 1 tahun.
+  - question: Apa saja yang ditanggung garansi?
+    answer: Garansi mencakup spare part dan jasa service selama masa garansi.
+  - question: Apakah ada biaya tambahan saat service?
+    answer: Pelanggan hanya dikenakan biaya transportasi teknisi sesuai lokasi.
+  - question: Apakah instalasi tersedia?
+    answer: Instalasi tersedia untuk Jabodetabek, Bandung, Medan, Surabaya, dan Yogyakarta.
+  - question: Bagaimana jika terjadi masalah teknis?
+    answer: AI mengumpulkan data awal dan meneruskan kasus ke admin atau tim service. AI tidak mengambil keputusan klaim garansi.
