@@ -1,0 +1,44 @@
+id: CUSTOMER-INTENT
+version: 1.0.0
+status: approved
+owner: Monkefit
+
+intents:
+  - name: Product Inquiry
+    examples: ["saya mau tahu hussar1000","info hussar300"]
+    action: explain_product_then_discovery
+
+  - name: Price Inquiry
+    examples: ["berapa harganya","harga berapa"]
+    action: provide_public_price_then_discovery
+
+  - name: Purchase Intent
+    examples: ["saya mau beli","buatkan penawaran"]
+    action: collect_lead_and_handover
+
+  - name: B2B Project
+    examples: ["kami perusahaan","butuh untuk gym","PO"]
+    action: project_flow
+
+  - name: Competitor Comparison
+    examples: ["woodway","assault"]
+    action: neutral_comparison
+
+  - name: Warranty Inquiry
+    examples: ["garansi bagaimana","kalau rusak"]
+    action: explain_warranty
+
+  - name: Installation Inquiry
+    examples: ["bisa instalasi","saya di bali"]
+    action: check_coverage_or_escalate
+
+  - name: Complaint
+    examples: ["produk rusak","kecewa"]
+    action: immediate_service_escalation
+
+priority:
+  complaint: highest
+  purchase: high
+  project: high
+  product: normal
+  price: normal
