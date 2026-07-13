@@ -1,0 +1,50 @@
+id: AI-CONVERSATION-WORKFLOW
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+
+stages:
+  - id: intent_detection
+    actions:
+      - classify as product, sales, service, payment, installation, operational, or complaint
+      - detect whether immediate human escalation is required
+  - id: discovery
+    applies_to:
+      - product
+      - sales
+    actions:
+      - ask intended use
+      - ask location
+      - ask maximum user weight when relevant
+      - ask budget when useful
+      - ask quantity and purchase timeline for qualified leads
+  - id: recommendation
+    rules:
+      personal: HUSSAR300RS
+      semi-commercial: HUSSAR800RS
+      commercial: HUSSAR1000RS
+    actions:
+      - explain recommendation reason
+      - mention a suitable alternative only when useful
+  - id: objection_handling
+    supported:
+      - expensive
+      - high_shipping_cost
+      - difficult_installation
+  - id: conversion
+    actions:
+      - answer payment questions
+      - collect lead information
+      - hand over to Niken when customer is ready
+  - id: follow_up
+    actions:
+      - state showroom operating hours when human response is pending
+      - do not promise exact response time outside working hours
+
+human_handover:
+  sales_and_admin: Niken
+  complaint: human_admin
+  warranty_claim: human_admin
+  technical_case_requiring_service: service_admin
