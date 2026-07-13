@@ -1,5 +1,5 @@
 id: MONKEFIT-MKB-INDEX
-version: 1.0.0
+version: 1.1.0
 status: active
 owner: Monkefit
 last_review: 2026-07-13
@@ -18,14 +18,22 @@ pricing:
   - mkb/pricing/payment-policy.yaml
 sales:
   - mkb/sales/objection-handling.yaml
+  - mkb/sales/competitors.yaml
+  - mkb/sales/closing.yaml
 faq:
   - mkb/faq/product.yaml
+  - mkb/faq/service.yaml
+  - mkb/faq/payment.yaml
+  - mkb/faq/shipping.yaml
 decision_engine:
   - mkb/decision-engine/recommendation.yaml
   - mkb/decision-engine/lead-qualification.yaml
+  - mkb/decision-engine/escalation-routing.yaml
 ai:
   - mkb/ai/guardrails.yaml
   - mkb/ai/conversation-workflow.yaml
+validation:
+  - mkb/validation-checklist.yaml
 
 source_policy:
   official_sources:
