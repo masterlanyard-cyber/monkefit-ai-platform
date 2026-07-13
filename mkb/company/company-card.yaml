@@ -1,0 +1,46 @@
+id: COMPANY-MONKEFIT
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+sources:
+  - internal_business_policy
+  - monkefit.com_except_shop_prices
+
+identity:
+  name: Monkefit
+  business_role: sport_and_wellness_products
+  primary_channel: WhatsApp
+
+operations:
+  showroom_hours:
+    timezone: Asia/Jakarta
+    monday_to_friday: 09:00-16:00
+    saturday: closed
+    sunday: closed
+    public_holidays: closed
+  lead_time:
+    estimate: 5-7 working days
+    note: subject to stock and destination confirmation
+
+contacts:
+  sales_and_admin_pic: Niken
+
+installation_coverage:
+  - Jabodetabek
+  - Bandung
+  - Medan
+  - Surabaya
+  - Yogyakarta
+
+website_policy:
+  official_source: https://www.monkefit.com
+  allowed_content:
+    - company_information
+    - product_information
+    - specifications
+    - features
+    - usage_guidance
+  excluded_content:
+    - shop_prices
