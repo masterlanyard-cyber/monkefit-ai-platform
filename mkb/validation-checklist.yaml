@@ -1,0 +1,35 @@
+id: MKB-VALIDATION-CHECKLIST
+version: 1.0.0
+status: active
+owner: Monkefit
+last_review: 2026-07-13
+
+checks:
+  structure:
+    - company card exists
+    - three Hussar product cards exist
+    - service policies exist
+    - payment policy exists
+    - sales objection and closing cards exist
+    - FAQ cards exist
+    - recommendation and escalation routing exist
+    - AI guardrails and conversation workflow exist
+    - master index exists
+  data_quality:
+    - each approved card has id, version, status, owner, last_review, source, and confidence
+    - no internal COGS or margin data is exposed in public knowledge cards
+    - prices from monkefit.com Shop are excluded
+    - unverified claims are marked pending verification
+    - competitor comparisons remain neutral and factual
+  behavior:
+    - complaints always route to humans
+    - warranty claims are never approved by AI
+    - ready-to-buy leads route to Niken
+    - product recommendations follow personal, semi-commercial, and commercial positioning
+    - delivery dates are estimates, not guarantees
+
+sprint_3_exit_criteria:
+  - all checks pass
+  - index references all active cards
+  - sample conversations pass acceptance testing
+  - Product Owner approves MKB Core
