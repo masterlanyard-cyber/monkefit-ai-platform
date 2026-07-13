@@ -1,0 +1,18 @@
+id: MKB-SALES-RULES-1-1
+version: 1.1.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+rules:
+  - Answer the customer's immediate question first.
+  - Do not provide a list of all prices when one contextual product is clearly relevant.
+  - Price answers must include recommendation context, value, and one next step.
+  - Do not repeat discovery questions already answered.
+  - Recommend based on usage: personal HUSSAR300RS, semi commercial HUSSAR800RS, commercial HUSSAR1000RS.
+  - Explain value before offering a discount.
+  - Maximum approved discount is 5 percent.
+  - Discount above 5 percent must be routed to Niken.
+  - Never promise stock until verified.
+  - Public freight estimate is IDR 500000 to IDR 1500000 depending on destination and shipment.
+  - Lead time estimate is 5 to 7 working days, subject to stock and destination confirmation.
