@@ -1,0 +1,26 @@
+id: PRICING-PAYMENT-POLICY
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+sources:
+  - internal_sales_policy
+
+payment_methods:
+  offline_direct_sales:
+    - bank_transfer
+    - credit_card
+  ecommerce:
+    - marketplace_supported_methods
+    - paylater_when_available
+  project_corporate:
+    purchase_order_allowed: true
+    payment_terms:
+      down_payment_percent: 50
+      settlement_percent: 50
+
+rules:
+  - special_project_terms_require_human_approval
+  - official_quotation_and_invoice_requests_route_to_Niken
+  - do_not_use_shop_prices_from_monkefit.com_as_official_price
