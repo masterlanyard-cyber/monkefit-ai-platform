@@ -1,37 +1,80 @@
 id: MONKEFIT-MKB-INDEX
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: Monkefit
 last_review: 2026-07-13
 
 company:
   - mkb/company/company-card.yaml
+
 products:
   - mkb/products/hussar300rs.yaml
   - mkb/products/hussar800rs.yaml
   - mkb/products/hussar1000rs.yaml
+
 service:
   - mkb/service/warranty.yaml
   - mkb/service/installation.yaml
   - mkb/service/troubleshooting.yaml
+  - mkb/service/shipping-policy-v1.0.yaml
+  - mkb/service/technician-transport-v1.0.yaml
+
 pricing:
   - mkb/pricing/payment-policy.yaml
+  - mkb/pricing/discount-policy-v1.0.yaml
+
 sales:
   - mkb/sales/objection-handling.yaml
   - mkb/sales/competitors.yaml
   - mkb/sales/closing.yaml
+  - mkb/sales/conversation-style.yaml
+  - mkb/sales/conversation-style-v1.1.yaml
+  - mkb/sales/sales-rules-v1.1.yaml
+  - mkb/sales/objection-brain.yaml
+  - mkb/sales/closing-brain.yaml
+  - mkb/sales/negotiation.yaml
+  - mkb/sales/follow-up-engine.yaml
+
 faq:
   - mkb/faq/product.yaml
   - mkb/faq/service.yaml
   - mkb/faq/payment.yaml
   - mkb/faq/shipping.yaml
+
 decision_engine:
   - mkb/decision-engine/recommendation.yaml
   - mkb/decision-engine/lead-qualification.yaml
   - mkb/decision-engine/escalation-routing.yaml
+
+intelligence:
+  - mkb/intelligence/conversation-state.yaml
+  - mkb/intelligence/conversation-memory.yaml
+  - mkb/intelligence/customer-goal.yaml
+  - mkb/intelligence/next-best-action.yaml
+  - mkb/intelligence/persona-engine.yaml
+  - mkb/intelligence/confidence-engine.yaml
+  - mkb/intelligence/response-quality.yaml
+
+consultant:
+  - mkb/consultant/package-engine.yaml
+  - mkb/consultant/gym-planner.yaml
+  - mkb/consultant/investment-planner.yaml
+  - mkb/consultant/expansion-planner.yaml
+
 ai:
   - mkb/ai/guardrails.yaml
   - mkb/ai/conversation-workflow.yaml
+  - mkb/ai/customer-intent.yaml
+  - mkb/ai/customer-profile.yaml
+  - mkb/ai/lead-score.yaml
+  - mkb/ai/master-system-prompt.md
+
+uat:
+  - mkb/uat/UAT_PLAN.md
+  - mkb/uat/TC001-TC030.md
+  - mkb/uat/BUG_REPORT.md
+  - mkb/uat/RELEASE_CHECKLIST.md
+
 validation:
   - mkb/validation-checklist.yaml
 
