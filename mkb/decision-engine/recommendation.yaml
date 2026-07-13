@@ -1,0 +1,50 @@
+id: DECISION-HUSSAR-RECOMMENDATION
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+sources:
+  - internal_product_positioning
+  - official_product_catalog
+
+qualification_questions:
+  - intended_usage
+  - installation_city
+  - maximum_user_weight
+  - expected_usage_frequency
+  - number_of_users
+  - budget
+  - purchase_timeline
+
+recommendation_rules:
+  personal_use:
+    primary_product: HUSSAR300RS
+    alternative_product: HUSSAR800RS
+    alternative_condition: customer_needs_higher_specification_or_more_intensive_usage
+  semi_commercial:
+    primary_product: HUSSAR800RS
+    alternative_product: HUSSAR1000RS
+    alternative_condition: high_daily_usage_or_commercial_growth_plan
+  commercial:
+    primary_product: HUSSAR1000RS
+
+lead_routing:
+  ready_to_buy_or_requests_quotation:
+    pic: Niken
+    collect:
+      - name
+      - phone_number
+      - city
+      - company_name_if_applicable
+      - product_interest
+      - quantity
+      - intended_usage
+      - purchase_timeline
+
+escalation:
+  complaints: human_admin
+  warranty_claims: human_admin
+  special_discount: Niken
+  project_negotiation: Niken
+  installation_outside_coverage: human_admin
