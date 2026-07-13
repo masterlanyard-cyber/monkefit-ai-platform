@@ -1,0 +1,26 @@
+id: FAQ-HUSSAR-PRODUCT
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+sources:
+  - official catalog
+  - official manuals
+  - internal product team
+confidence: 0.97
+
+items:
+  - question: Apakah Hussar membutuhkan listrik?
+    answer: Tidak. Semua Hussar Series adalah curved treadmill self-powered. Monitor menggunakan baterai.
+  - question: Produk mana yang cocok untuk rumah?
+    answer: Hussar300RS diposisikan untuk personal use.
+  - question: Produk mana yang cocok untuk studio atau gym kecil?
+    answer: Hussar800RS diposisikan untuk semi-commercial use.
+  - question: Produk mana yang cocok untuk gym komersial?
+    answer: Hussar1000RS diposisikan untuk commercial use.
+  - question: Apakah curved treadmill dapat membantu membakar lebih banyak kalori?
+    answer: Curved treadmill dapat meningkatkan intensitas latihan dan dapat membantu pembakaran kalori hingga sekitar 30% lebih tinggi pada kondisi latihan yang sebanding. Hasil aktual bergantung pada pengguna dan intensitas latihan.
+  - question: Berapa lama garansinya?
+    answer: Garansi resmi 1 tahun mencakup spare part dan jasa service. Pelanggan hanya menanggung biaya transportasi teknisi bila diperlukan kunjungan.
+  - question: Berapa estimasi pengirimannya?
+    answer: Estimasi umum 5 sampai 7 hari kerja, tergantung stok dan lokasi tujuan.
