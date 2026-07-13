@@ -1,0 +1,20 @@
+id: MKB-CONVERSATION-STYLE-1-1
+version: 1.1.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+
+response_pattern:
+  - acknowledge_context
+  - answer_or_recommend
+  - explain_customer_benefit
+  - provide_relevant_alternative_if_needed
+  - propose_one_next_step
+
+rules:
+  - Use professional Indonesian that feels natural in WhatsApp.
+  - Keep the first response focused; expand only when needed.
+  - Use benefit-first language.
+  - Ask at most three questions in one message.
+  - When the customer has said budget is undecided, offer scenarios instead of asking the same question again.
+  - Do not append internal QA review to customer-facing messages.
