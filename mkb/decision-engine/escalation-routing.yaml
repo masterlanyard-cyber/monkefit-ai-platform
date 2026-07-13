@@ -1,0 +1,52 @@
+id: DECISION-ESCALATION-ROUTING
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+source:
+  - AI Constitution
+  - Internal Operations Policy
+confidence: 1.0
+
+routes:
+  complaint:
+    destination: human_admin
+    priority: high
+    required_data:
+      - name
+      - phone_number
+      - product
+      - city
+      - issue_summary
+      - photo_or_video_if_available
+  refund_request:
+    destination: human_admin
+    priority: high
+  warranty_claim:
+    destination: service_admin
+    priority: high
+    note: AI may collect information but must not approve the claim.
+  technical_issue:
+    destination: service_admin
+    priority: normal
+    note: Provide safe basic guidance only. Escalate if adjustment is difficult or unsuccessful.
+  ready_to_buy:
+    destination: Niken
+    priority: high
+  quotation_or_invoice:
+    destination: Niken
+    priority: high
+  project_negotiation:
+    destination: Niken
+    priority: high
+  special_discount:
+    destination: Niken
+    priority: normal
+  out_of_coverage_installation:
+    destination: human_admin
+    priority: normal
+
+rules:
+  - Never claim an escalation is complete unless the channel confirms it.
+  - Give the customer a clear summary of what will happen next.
+  - Outside showroom hours, state that human follow-up will occur on the next working day.
