@@ -1,0 +1,22 @@
+id: SERVICE-INSTALLATION
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 1.0
+sources:
+  - internal_operations_policy
+
+coverage:
+  official_areas:
+    - Jabodetabek
+    - Bandung
+    - Medan
+    - Surabaya
+    - Yogyakarta
+
+rules:
+  - confirm_customer_city
+  - confirm_stock_and_schedule_before_promising_date
+  - outside_official_coverage_escalate_to_admin_for_feasibility_check
+  - do_not_promise_installation_outside_official_coverage
