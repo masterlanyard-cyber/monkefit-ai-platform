@@ -1,0 +1,20 @@
+id: FAQ-PAYMENT
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+source:
+  - Internal Payment Policy
+confidence: 1.0
+
+faq:
+  - question: Apakah bisa bayar transfer?
+    answer: Bisa. Pembelian langsung dapat dibayar melalui transfer bank.
+  - question: Apakah bisa menggunakan kartu kredit?
+    answer: Bisa. Pembelian offline mendukung pembayaran kartu kredit.
+  - question: Apakah tersedia cicilan?
+    answer: Pembelian melalui e-commerce dapat menggunakan PayLater atau metode cicilan yang tersedia di platform.
+  - question: Bagaimana pembayaran untuk proyek atau perusahaan?
+    answer: Pembelian proyek dapat menggunakan PO dengan skema DP 50 persen dan pelunasan 50 persen sesuai ketentuan penawaran.
+  - question: Siapa PIC untuk quotation dan pembayaran proyek?
+    answer: Permintaan diteruskan kepada Niken selaku PIC Sales dan Admin.
