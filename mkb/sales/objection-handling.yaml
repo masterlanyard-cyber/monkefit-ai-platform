@@ -1,0 +1,42 @@
+id: SALES-OBJECTION-HANDLING
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 0.95
+sources:
+  - internal_sales_team
+
+objections:
+  expensive:
+    customer_signal: mahal
+    response_points:
+      - focus_on_long_term_value
+      - no_electricity_operating_cost
+      - self_powered_design
+      - match_product_to_usage_intensity
+  high_shipping_cost:
+    customer_signal: ongkir_tinggi
+    response_points:
+      - explain_large_and_heavy_product_logistics
+      - confirm_destination_before_quote
+      - avoid_promising_free_shipping_without_policy
+  difficult_installation:
+    customer_signal: susah_instalasi
+    response_points:
+      - explain_official_installation_coverage
+      - collect_city_and_product
+      - outside_coverage_escalate_for_solution_check
+
+buying_triggers:
+  - saves_electricity
+  - works_during_power_outages
+  - curved_treadmill_training_experience
+  - potentially_higher_training_intensity
+
+competitor_guidance:
+  brands:
+    - Woodway
+    - AssaultRunner
+  positioning: premium_and_higher_investment_cost
+  response_rule: compare_value_without_disparaging_competitors
