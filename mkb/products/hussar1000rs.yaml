@@ -1,0 +1,60 @@
+id: PRODUCT-HUSSAR1000RS
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-13
+confidence: 0.98
+sources:
+  - Monkefit Catalog 2024
+  - R1000 user manual
+  - internal_sales_team
+  - internal_service_team
+  - monkefit.com_except_shop_prices
+
+identity:
+  sku: HUSSAR1000RS
+  name: Hussar 1000RS
+  category: self_powered_curved_treadmill
+  positioning: commercial
+
+recommended_for:
+  - commercial_gym
+  - crossfit_box
+  - performance_center
+  - sports_club
+  - corporate_fitness_center
+
+specifications:
+  product_weight_kg: 73
+  running_surface_cm: 165x50
+  max_speed_kmh: 35
+  max_user_weight_kg: 200
+  foldable: false
+  electricity_required: false
+  bluetooth: true
+  app_and_smartwatch_compatible: true
+  magnetic_resistance_levels: 8
+  frame: steel
+  extra_front_handle: true
+  warranty_years: 1
+
+key_benefits:
+  - self_powered_and_does_not_require_electricity
+  - suitable_for_areas_with_frequent_power_outages
+  - no_electricity_operating_cost
+  - natural_user_controlled_running_experience
+  - suitable_for_walk_backward_walk_jog_and_sprint
+  - can_support_higher_training_intensity
+  - calorie_burn_claim_up_to_30_percent_higher_than_motorized_treadmill_under_comparable_conditions
+
+sales_notes:
+  main_buying_trigger: electricity_savings
+  competitors:
+    - Woodway
+    - AssaultRunner
+  competitor_positioning: premium_brands_with_higher_investment_cost
+
+service_notes:
+  common_issue: slat_running_belt_can_shift
+  adjustment_difficulty: customer_may_find_belt_adjustment_difficult
+  escalation_required_when_adjustment_fails: true
