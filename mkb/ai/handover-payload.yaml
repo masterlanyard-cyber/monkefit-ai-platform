@@ -1,0 +1,83 @@
+id: MKB-HANDOVER-PAYLOAD
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Standardize the information passed from Monkefit AI to Niken for sales, project, quotation, and special follow-up.
+
+trigger_conditions:
+  - customer_is_ready_to_buy
+  - customer_requests_quotation
+  - customer_requests_invoice
+  - customer_requests_discount_above_5_percent
+  - customer_is_b2b_or_project
+  - customer_requests_human_follow_up
+
+required_fields:
+  - customer_name
+  - phone_number
+  - city
+  - product_interest
+  - quantity
+  - intended_use
+  - purchase_timeline
+
+optional_fields:
+  - company_name
+  - budget
+  - payment_preference
+  - installation_required
+  - objections
+  - competitor_being_considered
+  - preferred_follow_up_time
+
+payload_schema:
+  customer:
+    name: null
+    phone: null
+    city: null
+    company: null
+  opportunity:
+    persona: null
+    goal: null
+    product: null
+    quantity: null
+    intended_use: null
+    budget: null
+    purchase_timeline: null
+    payment_preference: null
+    installation_required: null
+  sales_context:
+    objections: []
+    competitor: null
+    recommendation_reason: null
+    public_price_shared: null
+    requested_discount_percent: null
+  intelligence:
+    lead_score: 0
+    lead_category: cold
+    conversation_stage: null
+    next_best_action: null
+  routing:
+    pic: Niken
+    role: Sales and Admin
+    priority: normal
+    requested_action: follow_up
+
+priority_rules:
+  priority:
+    - multiple_units
+    - quotation_requested
+    - ready_to_buy
+    - project_or_corporate
+  urgent:
+    - legal_threat
+    - angry_complaint
+    - refund_dispute
+
+rules:
+  - Do not send an incomplete payload when required fields can still be collected naturally.
+  - Do not expose COGS, internal margin, internal profit, or minimum approved selling price.
+  - Complaints and warranty disputes use escalation routing, not normal sales follow-up.
+  - The customer-facing message must clearly state that Niken will continue the process.
