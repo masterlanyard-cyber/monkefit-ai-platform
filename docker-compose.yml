@@ -1,0 +1,14 @@
+services:
+  monkefit-ai:
+    build: .
+    container_name: monkefit-ai
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - monkefit_ai_data:/app/data
+
+volumes:
+  monkefit_ai_data:
