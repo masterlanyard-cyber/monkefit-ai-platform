@@ -1,0 +1,37 @@
+id: MKB-LEARNING-REVIEW-WORKFLOW
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Control how learning candidates become approved Monkefit knowledge.
+
+workflow:
+  - stage: capture
+    action: Store anonymized question and conversation evidence.
+  - stage: cluster
+    action: Group similar questions and calculate frequency.
+  - stage: assess
+    action: Classify the knowledge gap and assign severity.
+  - stage: draft
+    action: Generate a proposed answer or knowledge-card change.
+  - stage: human_review
+    action: Reviewer approves, edits, rejects, or requests more evidence.
+  - stage: version
+    action: Update the relevant MKB file with version and source metadata.
+  - stage: test
+    action: Add or update a UAT case before production activation.
+  - stage: release
+    action: Add the approved file to index and manifest.
+
+review_roles:
+  product_and_sales: Fung or assigned Monkefit product owner
+  sales_admin: Niken
+  service: assigned service or technician reviewer
+  technical_release: repository maintainer
+
+approval_rules:
+  - No customer conversation can directly modify production knowledge.
+  - Pricing, discount, warranty, payment, and complaint rules require explicit business approval.
+  - Product specifications require an official source or verified internal document.
+  - Rejected learning candidates remain archived for trend analysis but are never loaded by production.
