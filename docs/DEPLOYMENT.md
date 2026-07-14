@@ -1,59 +1,92 @@
 # Monkefit AI Deployment Guide
 
-## Recommended architecture
+## Hostinger Web Apps deployment
 
-Run the Monkefit AI API as a separate Node.js service, then connect the Hostinger website and WhatsApp provider to its HTTPS URL.
+Deploy the repository as a Node.js Web App from GitHub.
 
-Hostinger shared website hosting may remain unchanged. The API can run on a Hostinger VPS or another Docker-compatible service.
+Recommended settings:
+
+```text
+Repository: masterlanyard-cyber/monkefit-ai-platform
+Branch: main
+Node.js: 20 or newer
+Build command: npm install
+Start command: npm start
+```
 
 ## Required environment variables
 
-Copy `.env.example` to `.env` and fill:
-
 ```env
-PORT=3000
 NODE_ENV=production
 OPENAI_API_KEY=your_key
 OPENAI_MODEL=gpt-4.1-mini
 MKB_ROOT=./mkb
 DATA_DIR=./data
+STORAGE_ADAPTER=json
+SQLITE_PATH=./data/monkefit.db
+API_SECRET=generate_a_long_random_secret
+ALLOWED_ORIGINS=https://www.monkefit.com,https://monkefit.com
+RATE_LIMIT_WINDOW_MS=60000
+RATE_LIMIT_MAX=60
 ```
 
-Never commit `.env`.
+Never commit `.env` or customer data.
 
-## Run with Docker Compose
+## Storage adapters
+
+The runtime uses a repository abstraction, so lead and session business logic is independent from the storage engine.
+
+### JSON mode
+
+```env
+STORAGE_ADAPTER=json
+```
+
+This is the safest default for the first Hostinger deployment. It has no native dependency and automatically stores data under `DATA_DIR`.
+
+### SQLite mode
+
+```env
+STORAGE_ADAPTER=sqlite
+SQLITE_PATH=./data/monkefit.db
+```
+
+SQLite uses the optional `better-sqlite3` dependency. If the Hostinger build environment cannot compile or install it, the application automatically falls back to JSON and logs a warning.
+
+To migrate existing JSON records into SQLite:
 
 ```bash
-docker compose up -d --build
+npm run migrate:storage
 ```
 
-Check health:
+Run the migration before changing `STORAGE_ADAPTER` to `sqlite`.
 
-```bash
-curl http://localhost:3000/api/health
-```
+## Persistence warning
 
-## Persistent data
+Confirm with Hostinger that the application data directory survives redeployment. If deployment replaces the filesystem, use an external managed database before live customer traffic. The repository abstraction allows a PostgreSQL or Supabase adapter to be added without rewriting the lead and conversation engines.
 
-Docker Compose mounts a named volume at `/app/data`. Leads and conversation sessions survive container restarts.
+## Health check
 
-For an MVP this JSON persistence is sufficient for low-to-moderate traffic. Before high-volume production, migrate the storage adapter to PostgreSQL.
-
-## Reverse proxy and HTTPS
-
-Expose the API through an HTTPS subdomain, for example:
+After deployment, open:
 
 ```text
-ai-api.monkefit.com
+https://YOUR-APP-DOMAIN/api/health
 ```
 
-Configure Nginx or the VPS control panel to proxy HTTPS traffic to `http://127.0.0.1:3000`.
+The response should report:
+
+- MKB healthy,
+- OpenAI key configured,
+- API protection enabled,
+- persistent storage enabled,
+- active storage adapter.
 
 ## Production checks
 
 1. `GET /api/health` returns HTTP 200.
 2. MKB reports no missing active files.
 3. `OPENAI_API_KEY` is present.
-4. `DATA_DIR` is writable and persistent.
-5. CORS and API authentication are added before public website or WhatsApp rollout.
-6. Customer personal data retention is reviewed before production use.
+4. `API_SECRET` is set.
+5. `DATA_DIR` is writable.
+6. Allowed origins contain only approved Monkefit domains.
+7. Customer personal-data retention is reviewed before WhatsApp rollout.
