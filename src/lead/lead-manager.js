@@ -1,4 +1,11 @@
-const leads = new Map();
+import { createJsonStore } from '../storage/json-store.js';
+
+const store = createJsonStore('leads', []);
+const leads = new Map(store.read().map((lead) => [lead.id, lead]));
+
+function persist() {
+  store.write([...leads.values()]);
+}
 
 export function scoreLead(input = {}) {
   let score = 0;
@@ -37,14 +44,22 @@ export function createLead(input = {}) {
     updatedAt: new Date().toISOString()
   };
   leads.set(id, lead);
+  persist();
   return lead;
 }
 
 export function updateLead(id, patch = {}) {
   const current = leads.get(id);
   if (!current) return null;
-  const next = { ...current, ...patch, updatedAt: new Date().toISOString() };
+  const rescored = scoreLead({ ...current, ...patch });
+  const next = {
+    ...current,
+    ...patch,
+    ...rescored,
+    updatedAt: new Date().toISOString()
+  };
   leads.set(id, next);
+  persist();
   return next;
 }
 
