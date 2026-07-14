@@ -1,0 +1,59 @@
+id: MKB-LEAD-HANDOVER
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Standardize the customer summary sent to Niken for sales follow-up.
+
+handover_trigger:
+  - customer_ready_to_buy
+  - quotation_requested
+  - invoice_requested
+  - project_or_multiple_units
+  - discount_above_5_percent
+  - special_commercial_terms
+
+required_fields:
+  - customer_name
+  - phone_number
+  - city
+  - intended_use
+  - product_interest
+  - quantity
+  - purchase_timeline
+
+optional_fields:
+  - company_name
+  - budget
+  - preferred_payment_method
+  - installation_required
+  - objections
+  - competitor_considered
+
+summary_template:
+  customer: null
+  phone: null
+  city: null
+  company: null
+  persona: null
+  goal: null
+  intended_use: null
+  recommended_product: null
+  alternative_product: null
+  quantity: null
+  budget: null
+  purchase_timeline: null
+  payment_preference: null
+  installation_required: null
+  objections: []
+  lead_score: 0
+  lead_category: cold
+  requested_next_step: null
+  handover_to: Niken
+
+rules:
+  - Do not hand over an empty summary.
+  - Never include COGS, internal margin, internal profit, or confidential price floors.
+  - Summarize facts only; do not invent missing customer data.
+  - Preserve the customer's most important objection and requested next step.
