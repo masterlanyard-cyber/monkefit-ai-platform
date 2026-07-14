@@ -10,9 +10,14 @@ import { recommendEquipment } from './recommendation/recommendation-engine.js';
 import { createLead, getLead, listLeads, updateLead } from './lead/lead-manager.js';
 import { buildQuotation } from './quotation/quotation-builder.js';
 import { buildHandoverPayload } from './handover/handover-engine.js';
+import { apiKeyMiddleware, corsMiddleware, rateLimitMiddleware } from './middleware/security.js';
 
 const app = express();
+app.set('trust proxy', 1);
 app.use(express.json({ limit: '1mb' }));
+app.use(corsMiddleware);
+app.use(rateLimitMiddleware);
+app.use(apiKeyMiddleware);
 
 let knowledgeBase;
 try {
@@ -38,11 +43,22 @@ const recommendationSchema = z.object({
 });
 
 app.get('/api/health', (_req, res) => {
-  res.status(knowledgeBase.healthy ? 200 : 503).json({
-    success: knowledgeBase.healthy,
+  const openAiConfigured = Boolean(process.env.OPENAI_API_KEY);
+  const apiProtected = Boolean(process.env.API_SECRET);
+  const persistenceConfigured = Boolean(process.env.DATA_DIR);
+  const healthy = knowledgeBase.healthy && openAiConfigured;
+
+  res.status(healthy ? 200 : 503).json({
+    success: healthy,
     service: 'monkefit-ai-platform',
     knowledgeDocuments: knowledgeBase.documents.length,
     missingKnowledge: knowledgeBase.missing,
+    checks: {
+      knowledgeBase: knowledgeBase.healthy,
+      openAiConfigured,
+      apiProtected,
+      persistenceConfigured
+    },
     timestamp: new Date().toISOString()
   });
 });
