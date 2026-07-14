@@ -1,12 +1,13 @@
 {
   "name": "monkefit-ai-platform",
-  "version": "1.3.0-alpha1",
+  "version": "1.4.0-alpha1",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
     "validate:mkb": "node src/scripts/validate-mkb.js",
+    "migrate:storage": "node src/scripts/migrate-storage.js",
     "test": "node --test src/tests/*.test.js"
   },
   "engines": {
@@ -18,5 +19,8 @@
     "js-yaml": "^4.1.0",
     "openai": "^4.77.0",
     "zod": "^3.24.1"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^11.7.0"
   }
 }
