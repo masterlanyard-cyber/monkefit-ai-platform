@@ -1,5 +1,5 @@
 id: MONKEFIT-MKB-MANIFEST
-version: 1.1.0
+version: 1.2.0
 status: active
 owner: Monkefit
 last_review: 2026-07-14
@@ -62,6 +62,10 @@ active_layers:
     - mkb/ai/lead-score.yaml
     - mkb/ai/master-system-prompt.md
     - mkb/ai/handover-payload.yaml
+  learning:
+    - mkb/learning/question-miner.yaml
+    - mkb/learning/knowledge-gap-detector.yaml
+    - mkb/learning/review-workflow.yaml
   uat:
     - mkb/uat/UAT_PLAN.md
     - mkb/uat/TC001-TC030.md
@@ -91,7 +95,14 @@ stock_policy:
   status: pending_live_integration
   response_rule: verify_with_team_before_confirming
 
+learning_policy:
+  automatic_production_update: false
+  human_review_required: true
+  pii_must_be_removed: true
+  approved_changes_require_version_and_uat: true
+
 runtime_rules:
   - Load active_layers only.
   - Do not load legacy_modules in production.
   - Active versioned policies take precedence over older unversioned files.
+  - Learning candidates never become production knowledge without approval.
