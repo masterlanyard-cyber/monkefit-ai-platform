@@ -1,28 +1,31 @@
-import { createJsonStore } from '../storage/json-store.js';
+import { createRepository } from '../storage/repository-factory.js';
 
-const store = createJsonStore('sessions', []);
-const sessions = new Map(store.read().map((session) => [session.sessionId, session]));
+const repository = createRepository('sessions');
 
-function persist() {
-  store.write([...sessions.values()]);
+function normalizeSession(session) {
+  if (!session) return null;
+  return { ...session, id: session.id || session.sessionId };
 }
 
 export function getSession(sessionId) {
-  if (!sessions.has(sessionId)) {
-    sessions.set(sessionId, {
-      sessionId,
-      stage: 'discovery',
-      persona: null,
-      customerGoal: null,
-      known: {},
-      recommendedProduct: null,
-      messages: [],
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    });
-    persist();
-  }
-  return sessions.get(sessionId);
+  const existing = repository.get(sessionId);
+  if (existing) return normalizeSession(existing);
+
+  const now = new Date().toISOString();
+  const session = {
+    id: sessionId,
+    sessionId,
+    stage: 'discovery',
+    persona: null,
+    customerGoal: null,
+    known: {},
+    recommendedProduct: null,
+    messages: [],
+    createdAt: now,
+    updatedAt: now
+  };
+  repository.upsert(session);
+  return session;
 }
 
 export function updateSession(sessionId, patch = {}) {
@@ -30,28 +33,32 @@ export function updateSession(sessionId, patch = {}) {
   const next = {
     ...current,
     ...patch,
+    id: sessionId,
+    sessionId,
     known: { ...current.known, ...(patch.known || {}) },
     updatedAt: new Date().toISOString()
   };
-  sessions.set(sessionId, next);
-  persist();
-  return next;
+  return repository.upsert(next);
 }
 
 export function appendMessage(sessionId, role, content) {
-  const session = getSession(sessionId);
-  session.messages.push({ role, content, at: new Date().toISOString() });
-  if (session.messages.length > 30) session.messages = session.messages.slice(-30);
-  session.updatedAt = new Date().toISOString();
-  sessions.set(sessionId, session);
-  persist();
-  return session;
+  const current = getSession(sessionId);
+  const messages = [...(current.messages || []), { role, content, at: new Date().toISOString() }].slice(-30);
+  return repository.upsert({
+    ...current,
+    id: sessionId,
+    sessionId,
+    messages,
+    updatedAt: new Date().toISOString()
+  });
 }
 
 export function deleteSession(sessionId) {
-  const deleted = sessions.delete(sessionId);
-  if (deleted) persist();
-  return deleted;
+  return repository.remove(sessionId);
+}
+
+export function getSessionStorageAdapter() {
+  return repository.adapter;
 }
 
 export function detectContext(message, session) {
