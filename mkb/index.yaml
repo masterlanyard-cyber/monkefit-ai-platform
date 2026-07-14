@@ -1,5 +1,5 @@
 id: MONKEFIT-MKB-INDEX
-version: 1.3.0
+version: 1.4.0
 status: active
 owner: Monkefit
 last_review: 2026-07-14
@@ -67,6 +67,11 @@ ai:
   - mkb/ai/lead-score.yaml
   - mkb/ai/handover-payload.yaml
   - mkb/ai/master-system-prompt.md
+
+learning:
+  - mkb/learning/question-miner.yaml
+  - mkb/learning/knowledge-gap-detector.yaml
+  - mkb/learning/review-workflow.yaml
 
 uat:
   - mkb/uat/UAT_PLAN.md
