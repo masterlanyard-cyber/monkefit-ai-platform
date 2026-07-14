@@ -1,0 +1,38 @@
+id: MKB-ROI-ESTIMATOR
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Produce a simple, transparent ROI and break-even estimate for gym or studio projects.
+
+required_inputs:
+  - initial_investment_idr
+  - monthly_fixed_cost_idr
+  - monthly_variable_cost_idr
+  - average_revenue_per_member_idr
+  - active_members
+  - monthly_pt_session_revenue_idr
+  - other_monthly_revenue_idr
+
+formulas:
+  monthly_revenue: average_revenue_per_member_idr * active_members + monthly_pt_session_revenue_idr + other_monthly_revenue_idr
+  monthly_operating_profit: monthly_revenue - monthly_fixed_cost_idr - monthly_variable_cost_idr
+  break_even_months: initial_investment_idr / monthly_operating_profit
+  annual_roi_percent: monthly_operating_profit * 12 / initial_investment_idr * 100
+
+rules:
+  - Present results as estimates, not financial guarantees.
+  - Show all assumptions used.
+  - If monthly operating profit is zero or negative, do not calculate break-even months; flag the scenario as not yet viable.
+  - Do not include tax, financing cost, depreciation, or owner salary unless provided.
+  - Use conservative, base, and optimistic scenarios when sufficient inputs exist.
+
+output:
+  - monthly_revenue
+  - monthly_operating_profit
+  - break_even_months
+  - annual_roi_percent
+  - scenario_comparison
+  - assumptions
+  - risk_notes
