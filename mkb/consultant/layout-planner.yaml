@@ -1,0 +1,45 @@
+id: MKB-LAYOUT-PLANNER
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Provide conceptual equipment zoning and circulation guidance for small gym projects.
+
+required_inputs:
+  - room_dimensions
+  - entrances_and_exits
+  - fixed_obstructions
+  - equipment_list
+  - business_concept
+  - target_simultaneous_users
+
+zones:
+  reception_and_waiting:
+    priority: near_main_entrance
+  cardio:
+    priority: perimeter_or_front_visibility
+  strength:
+    priority: stable_floor_and_clear_access
+  functional:
+    priority: open_central_or_rear_area
+  stretching:
+    priority: low_traffic_area
+  storage:
+    priority: accessible_but_out_of_circulation
+
+planning_rules:
+  - Maintain clear circulation from entrance to every training zone.
+  - Do not block emergency exits, doors, or service access.
+  - Keep moving parts and running surfaces clear of walls and other equipment.
+  - Place high-noise or high-impact activity away from reception and consultation areas when possible.
+  - Preserve one flexible open area for personal training and functional work.
+  - Recommendations are conceptual and not a substitute for architectural, structural, electrical, or fire-safety approval.
+
+output:
+  - proposed_zones
+  - equipment_placement_sequence
+  - circulation_notes
+  - safety_flags
+  - capacity_constraints
+  - assumptions
