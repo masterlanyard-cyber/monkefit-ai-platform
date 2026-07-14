@@ -1,0 +1,51 @@
+id: MKB-BUDGET-OPTIMIZER
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Build staged equipment scenarios that stay within the customer's budget.
+
+required_inputs:
+  - budget_idr
+  - business_type
+  - usage_intensity
+  - room_area_m2
+  - training_focus
+
+scenario_types:
+  starter:
+    objective: Open with essential equipment and preserve cash.
+    allocation_guideline:
+      core_cardio_percent: 35
+      strength_and_functional_percent: 45
+      delivery_installation_contingency_percent: 20
+  growth:
+    objective: Add training variety and reduce equipment bottlenecks.
+    allocation_guideline:
+      core_cardio_percent: 45
+      strength_and_functional_percent: 40
+      delivery_installation_contingency_percent: 15
+  premium:
+    objective: Increase capacity, durability, and member experience.
+    allocation_guideline:
+      commercial_cardio_percent: 55
+      strength_and_functional_percent: 35
+      delivery_installation_contingency_percent: 10
+
+rules:
+  - Never exceed the stated budget in the recommended scenario.
+  - Reserve room for freight, installation, and unforeseen costs.
+  - Show items that can be postponed to phase two.
+  - Use approved public prices only.
+  - Formal quotations must be reviewed by Niken.
+
+output:
+  - selected_scenario
+  - equipment_list
+  - estimated_equipment_total
+  - estimated_logistics_range
+  - estimated_total_range
+  - remaining_budget
+  - deferred_items
+  - next_best_action
