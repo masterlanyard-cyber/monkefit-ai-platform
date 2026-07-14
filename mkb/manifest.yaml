@@ -1,9 +1,12 @@
 id: MONKEFIT-MKB-MANIFEST
-version: 1.0.0
+version: 1.1.0
 status: active
 owner: Monkefit
 last_review: 2026-07-14
-release: sprint-3-core
+release:
+  name: Monkefit AI Core
+  version: 1.0.0-rc1
+  sprint: 3
 
 active_layers:
   company:
@@ -22,14 +25,11 @@ active_layers:
     - mkb/service/shipping-policy-v1.0.yaml
     - mkb/service/technician-transport-v1.0.yaml
   sales:
-    - mkb/sales/objection-handling.yaml
     - mkb/sales/objection-brain.yaml
     - mkb/sales/competitors.yaml
-    - mkb/sales/closing.yaml
     - mkb/sales/closing-brain.yaml
     - mkb/sales/negotiation.yaml
     - mkb/sales/follow-up-engine.yaml
-    - mkb/sales/conversation-style.yaml
     - mkb/sales/conversation-style-v1.1.yaml
     - mkb/sales/sales-rules-v1.1.yaml
   faq:
@@ -61,11 +61,20 @@ active_layers:
     - mkb/ai/customer-profile.yaml
     - mkb/ai/lead-score.yaml
     - mkb/ai/master-system-prompt.md
+    - mkb/ai/handover-payload.yaml
   uat:
     - mkb/uat/UAT_PLAN.md
     - mkb/uat/TC001-TC030.md
     - mkb/uat/BUG_REPORT.md
     - mkb/uat/RELEASE_CHECKLIST.md
+
+legacy_modules:
+  - path: mkb/sales/objection-handling.yaml
+    replaced_by: mkb/sales/objection-brain.yaml
+  - path: mkb/sales/closing.yaml
+    replaced_by: mkb/sales/closing-brain.yaml
+  - path: mkb/sales/conversation-style.yaml
+    replaced_by: mkb/sales/conversation-style-v1.1.yaml
 
 source_of_truth:
   index: mkb/index.yaml
@@ -81,3 +90,8 @@ confidentiality:
 stock_policy:
   status: pending_live_integration
   response_rule: verify_with_team_before_confirming
+
+runtime_rules:
+  - Load active_layers only.
+  - Do not load legacy_modules in production.
+  - Active versioned policies take precedence over older unversioned files.
