@@ -1,0 +1,30 @@
+id: MKB-QUESTION-MINER
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Extract recurring and novel customer questions from real conversations without changing production knowledge automatically.
+
+inputs:
+  - conversation_id
+  - customer_message
+  - detected_intent
+  - product_context
+  - answer_confidence
+  - escalation_status
+
+outputs:
+  - normalized_question
+  - topic
+  - frequency_count
+  - novelty_score
+  - unanswered_flag
+  - suggested_owner
+
+rules:
+  - Remove personal data before analysis.
+  - Group semantically similar questions into one normalized question.
+  - Do not treat customer claims as verified facts.
+  - A question becomes a learning candidate when it is new, frequently repeated, or answered with low confidence.
+  - Learning candidates require human review before entering the MKB.
