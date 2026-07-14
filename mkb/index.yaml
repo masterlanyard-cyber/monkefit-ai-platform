@@ -1,5 +1,5 @@
 id: MONKEFIT-MKB-INDEX
-version: 1.4.0
+version: 1.5.0
 status: active
 owner: Monkefit
 last_review: 2026-07-14
@@ -58,6 +58,11 @@ consultant:
   - mkb/consultant/gym-planner.yaml
   - mkb/consultant/investment-planner.yaml
   - mkb/consultant/expansion-planner.yaml
+  - mkb/consultant/equipment-selector.yaml
+  - mkb/consultant/budget-optimizer.yaml
+  - mkb/consultant/gym-capacity-calculator.yaml
+  - mkb/consultant/roi-estimator.yaml
+  - mkb/consultant/layout-planner.yaml
 
 ai:
   - mkb/ai/guardrails.yaml
