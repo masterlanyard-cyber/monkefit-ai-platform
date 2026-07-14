@@ -1,0 +1,51 @@
+id: MKB-EQUIPMENT-SELECTOR
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Select equipment based on use case, room, target users, and budget.
+
+inputs:
+  - business_type
+  - usage_intensity
+  - room_area_m2
+  - target_simultaneous_users
+  - target_total_members
+  - budget_idr
+  - training_focus
+  - city
+
+selection_rules:
+  curved_treadmill:
+    personal_use:
+      product: HUSSAR300RS
+    semi_commercial:
+      product: HUSSAR800RS
+    commercial:
+      product: HUSSAR1000RS
+
+  complementary_cardio:
+    low_impact:
+      - MANDRILL
+      - ELLIPTICAL
+    full_body:
+      - ROWING_MACHINE
+    high_intensity:
+      - AIR_BIKE
+
+prioritization:
+  - Match equipment class to usage intensity.
+  - Prioritize versatile, high-utilization equipment for small studios.
+  - Avoid recommending more units than the room or budget can support.
+  - Use public approved prices only.
+  - Treat stock as unverified until checked by the team.
+
+output:
+  - recommended_items
+  - quantity
+  - priority
+  - rationale
+  - deferred_items
+  - upgrade_path
+  - assumptions
