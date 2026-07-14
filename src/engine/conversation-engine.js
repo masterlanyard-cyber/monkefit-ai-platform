@@ -1,4 +1,11 @@
-const sessions = new Map();
+import { createJsonStore } from '../storage/json-store.js';
+
+const store = createJsonStore('sessions', []);
+const sessions = new Map(store.read().map((session) => [session.sessionId, session]));
+
+function persist() {
+  store.write([...sessions.values()]);
+}
 
 export function getSession(sessionId) {
   if (!sessions.has(sessionId)) {
@@ -10,8 +17,10 @@ export function getSession(sessionId) {
       known: {},
       recommendedProduct: null,
       messages: [],
+      createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString()
     });
+    persist();
   }
   return sessions.get(sessionId);
 }
@@ -25,6 +34,7 @@ export function updateSession(sessionId, patch = {}) {
     updatedAt: new Date().toISOString()
   };
   sessions.set(sessionId, next);
+  persist();
   return next;
 }
 
@@ -33,7 +43,15 @@ export function appendMessage(sessionId, role, content) {
   session.messages.push({ role, content, at: new Date().toISOString() });
   if (session.messages.length > 30) session.messages = session.messages.slice(-30);
   session.updatedAt = new Date().toISOString();
+  sessions.set(sessionId, session);
+  persist();
   return session;
+}
+
+export function deleteSession(sessionId) {
+  const deleted = sessions.delete(sessionId);
+  if (deleted) persist();
+  return deleted;
 }
 
 export function detectContext(message, session) {
