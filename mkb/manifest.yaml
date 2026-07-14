@@ -1,12 +1,12 @@
 id: MONKEFIT-MKB-MANIFEST
-version: 1.2.0
+version: 1.3.0
 status: active
 owner: Monkefit
 last_review: 2026-07-14
 release:
   name: Monkefit AI Core
-  version: 1.0.0-rc1
-  sprint: 3
+  version: 1.1.0-alpha1
+  sprint: 4
 
 active_layers:
   company:
@@ -54,6 +54,11 @@ active_layers:
     - mkb/consultant/gym-planner.yaml
     - mkb/consultant/investment-planner.yaml
     - mkb/consultant/expansion-planner.yaml
+    - mkb/consultant/equipment-selector.yaml
+    - mkb/consultant/budget-optimizer.yaml
+    - mkb/consultant/gym-capacity-calculator.yaml
+    - mkb/consultant/roi-estimator.yaml
+    - mkb/consultant/layout-planner.yaml
   ai:
     - mkb/ai/guardrails.yaml
     - mkb/ai/conversation-workflow.yaml
@@ -106,3 +111,5 @@ runtime_rules:
   - Do not load legacy_modules in production.
   - Active versioned policies take precedence over older unversioned files.
   - Learning candidates never become production knowledge without approval.
+  - Consultant engine outputs are estimates and must expose assumptions.
+  - Formal quotations and final project commitments require Niken review.
