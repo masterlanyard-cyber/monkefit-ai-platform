@@ -1,0 +1,46 @@
+id: MKB-GYM-CAPACITY-CALCULATOR
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Estimate practical simultaneous-user capacity from room size and gym concept.
+
+required_inputs:
+  - room_length_m
+  - room_width_m
+  - concept
+  - fixed_obstructions
+  - planned_equipment
+
+calculation:
+  gross_area_m2: room_length_m * room_width_m
+  effective_area_factor:
+    personal_training_studio: 0.72
+    small_gym: 0.68
+    commercial_gym: 0.65
+    hotel_or_corporate_gym: 0.70
+  area_per_simultaneous_user_m2:
+    personal_training_studio:
+      minimum: 4
+      comfortable: 6
+    small_gym:
+      minimum: 4
+      comfortable: 5
+    commercial_gym:
+      minimum: 3.5
+      comfortable: 5
+
+rules:
+  - Results are planning estimates, not architectural certification.
+  - Deduct circulation, reception, storage, columns, toilets, and emergency access.
+  - Do not equate total registered members with simultaneous users.
+  - Flag bottlenecks when cardio demand exceeds available units.
+
+output:
+  - gross_area_m2
+  - effective_training_area_m2
+  - estimated_comfortable_simultaneous_users
+  - estimated_upper_limit_simultaneous_users
+  - bottleneck_risks
+  - assumptions
