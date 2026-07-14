@@ -11,6 +11,7 @@ import { createLead, getLead, listLeads, updateLead } from './lead/lead-manager.
 import { buildQuotation } from './quotation/quotation-builder.js';
 import { buildHandoverPayload } from './handover/handover-engine.js';
 import { apiKeyMiddleware, corsMiddleware, rateLimitMiddleware } from './middleware/security.js';
+import { getStorageStatus } from './storage/repository-factory.js';
 
 const app = express();
 app.set('trust proxy', 1);
@@ -46,18 +47,21 @@ app.get('/api/health', (_req, res) => {
   const openAiConfigured = Boolean(process.env.OPENAI_API_KEY);
   const apiProtected = Boolean(process.env.API_SECRET);
   const persistenceConfigured = Boolean(process.env.DATA_DIR);
+  const storage = getStorageStatus();
   const healthy = knowledgeBase.healthy && openAiConfigured;
 
   res.status(healthy ? 200 : 503).json({
     success: healthy,
     service: 'monkefit-ai-platform',
+    version: '1.4.0-alpha1',
     knowledgeDocuments: knowledgeBase.documents.length,
     missingKnowledge: knowledgeBase.missing,
     checks: {
       knowledgeBase: knowledgeBase.healthy,
       openAiConfigured,
       apiProtected,
-      persistenceConfigured
+      persistenceConfigured,
+      storage
     },
     timestamp: new Date().toISOString()
   });
