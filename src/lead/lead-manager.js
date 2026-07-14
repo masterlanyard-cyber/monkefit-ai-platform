@@ -1,11 +1,6 @@
-import { createJsonStore } from '../storage/json-store.js';
+import { createRepository } from '../storage/repository-factory.js';
 
-const store = createJsonStore('leads', []);
-const leads = new Map(store.read().map((lead) => [lead.id, lead]));
-
-function persist() {
-  store.write([...leads.values()]);
-}
+const repository = createRepository('leads');
 
 export function scoreLead(input = {}) {
   let score = 0;
@@ -32,41 +27,43 @@ export function scoreLead(input = {}) {
 }
 
 export function createLead(input = {}) {
-  const id = `LEAD-${Date.now()}`;
-  const scoring = scoreLead(input);
+  const now = new Date().toISOString();
   const lead = {
-    id,
+    id: `LEAD-${Date.now()}`,
     status: 'new',
     assignedTo: 'Niken',
     ...input,
-    ...scoring,
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString()
+    ...scoreLead(input),
+    createdAt: now,
+    updatedAt: now
   };
-  leads.set(id, lead);
-  persist();
-  return lead;
+  return repository.upsert(lead);
 }
 
 export function updateLead(id, patch = {}) {
-  const current = leads.get(id);
+  const current = repository.get(id);
   if (!current) return null;
-  const rescored = scoreLead({ ...current, ...patch });
+  const nextInput = { ...current, ...patch };
   const next = {
-    ...current,
-    ...patch,
-    ...rescored,
+    ...nextInput,
+    ...scoreLead(nextInput),
     updatedAt: new Date().toISOString()
   };
-  leads.set(id, next);
-  persist();
-  return next;
+  return repository.upsert(next);
 }
 
 export function getLead(id) {
-  return leads.get(id) || null;
+  return repository.get(id);
 }
 
 export function listLeads() {
-  return [...leads.values()];
+  return repository.list();
+}
+
+export function deleteLead(id) {
+  return repository.remove(id);
+}
+
+export function getLeadStorageAdapter() {
+  return repository.adapter;
 }
