@@ -1,0 +1,41 @@
+id: MKB-KNOWLEDGE-GAP-DETECTOR
+version: 1.0.0
+status: approved
+owner: Monkefit
+last_review: 2026-07-14
+
+purpose: Detect missing, incomplete, conflicting, or outdated knowledge from customer conversations and AI responses.
+
+gap_types:
+  - missing_answer
+  - low_confidence_answer
+  - conflicting_policy
+  - repeated_escalation
+  - outdated_information
+  - missing_product_detail
+  - missing_operational_rule
+
+signals:
+  - answer_confidence_below_0_70
+  - customer_repeats_question
+  - human_agent_corrects_ai
+  - answer_requires_manual_verification_repeatedly
+  - topic_not_found_in_index
+  - multiple_active_files_disagree
+
+output_schema:
+  gap_id: null
+  topic: null
+  gap_type: null
+  evidence_count: 0
+  sample_questions: []
+  affected_files: []
+  severity: low
+  proposed_action: null
+  review_status: pending
+
+rules:
+  - Never update active knowledge automatically.
+  - High-severity gaps include incorrect warranty, payment, pricing, safety, or escalation behavior.
+  - Every proposed correction must include evidence and a named reviewer.
+  - Approved corrections must be versioned and added through the normal MKB release process.
