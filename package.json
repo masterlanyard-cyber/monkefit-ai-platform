@@ -1,12 +1,13 @@
 {
   "name": "monkefit-ai-platform",
-  "version": "1.1.0-alpha2",
+  "version": "1.2.0-alpha1",
   "private": true,
   "type": "module",
   "scripts": {
     "start": "node src/server.js",
     "dev": "node --watch src/server.js",
-    "validate:mkb": "node src/scripts/validate-mkb.js"
+    "validate:mkb": "node src/scripts/validate-mkb.js",
+    "test": "node --test src/tests/*.test.js"
   },
   "engines": {
     "node": ">=20"
