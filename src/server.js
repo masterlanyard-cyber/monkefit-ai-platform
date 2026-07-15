@@ -32,6 +32,9 @@ app.use((req, res, next) => {
 });
 
 app.use((req, res, next) => {
+  const authEnabled = String(process.env.API_AUTH_ENABLED || 'false').toLowerCase() === 'true';
+  if (!authEnabled) return next();
+
   const publicPaths = new Set(['/', '/api/health', '/api/ping']);
   const secret = process.env.API_SECRET;
   if (!secret || publicPaths.has(req.path)) return next();
@@ -45,7 +48,7 @@ app.get('/', (_req, res) => {
   return res.status(200).json({
     success: true,
     service: 'monkefit-ai-platform',
-    version: '2.0.0-live',
+    version: '2.1.1-live',
     status: 'running',
     startedAt,
     health: '/api/health'
@@ -57,10 +60,11 @@ app.get('/api/ping', (_req, res) => {
 });
 
 app.get('/api/health', (_req, res) => {
+  const authEnabled = String(process.env.API_AUTH_ENABLED || 'false').toLowerCase() === 'true';
   return res.status(200).json({
     success: true,
     service: 'monkefit-ai-platform',
-    version: '2.0.0-live',
+    version: '2.1.1-live',
     runtime: {
       node: process.version,
       host,
@@ -69,7 +73,8 @@ app.get('/api/health', (_req, res) => {
     },
     configuration: {
       openAiConfigured: Boolean(process.env.OPENAI_API_KEY),
-      apiProtected: Boolean(process.env.API_SECRET),
+      apiProtected: authEnabled && Boolean(process.env.API_SECRET),
+      apiAuthEnabled: authEnabled,
       storageAdapter: process.env.STORAGE_ADAPTER || 'memory'
     },
     timestamp: new Date().toISOString()
