@@ -1,6 +1,6 @@
 {
   "name": "monkefit-ai-platform",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,8 @@
     "dev": "node --watch src/server.js",
     "validate:mkb": "node src/scripts/validate-mkb.js",
     "migrate:storage": "node src/scripts/migrate-storage.js",
-    "test": "node --test src/tests/*.test.js"
+    "test": "node --test src/tests/*.test.js",
+    "smoke:live": "node src/scripts/smoke-test-live.js"
   },
   "engines": {
     "node": ">=20"
