@@ -13,6 +13,9 @@ import { buildHandoverPayload } from './handover/handover-engine.js';
 import { apiKeyMiddleware, corsMiddleware, rateLimitMiddleware } from './middleware/security.js';
 import { getStorageStatus } from './storage/repository-factory.js';
 
+process.on('uncaughtException', (error) => console.error('uncaughtException:', error));
+process.on('unhandledRejection', (error) => console.error('unhandledRejection:', error));
+
 const app = express();
 app.set('trust proxy', 1);
 app.use(express.json({ limit: '1mb' }));
@@ -43,6 +46,15 @@ const recommendationSchema = z.object({
   powerOutageConcern: z.boolean().optional()
 });
 
+app.get('/', (_req, res) => {
+  res.status(200).json({
+    success: true,
+    service: 'monkefit-ai-platform',
+    status: 'running',
+    health: '/api/health'
+  });
+});
+
 app.get('/api/health', (_req, res) => {
   const openAiConfigured = Boolean(process.env.OPENAI_API_KEY);
   const apiProtected = Boolean(process.env.API_SECRET);
@@ -53,7 +65,7 @@ app.get('/api/health', (_req, res) => {
   res.status(healthy ? 200 : 503).json({
     success: healthy,
     service: 'monkefit-ai-platform',
-    version: '1.4.0-alpha1',
+    version: '1.4.0-alpha2',
     knowledgeDocuments: knowledgeBase.documents.length,
     missingKnowledge: knowledgeBase.missing,
     checks: {
@@ -150,6 +162,7 @@ app.post('/api/lead/handover', (req, res) => {
 });
 
 const port = Number(process.env.PORT || 3000);
-app.listen(port, () => {
-  console.log(`Monkefit AI API listening on port ${port}`);
+const host = process.env.HOST || '0.0.0.0';
+app.listen(port, host, () => {
+  console.log(`Monkefit AI API listening on ${host}:${port}`);
 });
