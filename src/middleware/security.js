@@ -26,7 +26,8 @@ export function corsMiddleware(req, res, next) {
 
 export function apiKeyMiddleware(req, res, next) {
   const configured = process.env.API_SECRET;
-  if (!configured || req.path === '/api/health') return next();
+  const publicPaths = new Set(['/', '/api/health']);
+  if (!configured || publicPaths.has(req.path)) return next();
 
   const provided = req.header('X-API-Key');
   if (provided !== configured) {
