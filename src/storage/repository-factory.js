@@ -1,7 +1,17 @@
 import { createJsonRepository } from './json-repository.js';
 import { createSqliteRepository } from './sqlite-repository.js';
+import { createMemoryRepository } from './memory-repository.js';
 
 const repositories = new Map();
+
+function createJsonWithFallback(collectionName) {
+  try {
+    return createJsonRepository(collectionName);
+  } catch (error) {
+    console.warn(`JSON storage unavailable for ${collectionName}; falling back to memory:`, error.message);
+    return createMemoryRepository(collectionName);
+  }
+}
 
 export function createRepository(collectionName) {
   if (repositories.has(collectionName)) return repositories.get(collectionName);
@@ -14,10 +24,12 @@ export function createRepository(collectionName) {
       repository = createSqliteRepository(collectionName);
     } catch (error) {
       console.warn(`SQLite unavailable for ${collectionName}; falling back to JSON:`, error.message);
-      repository = createJsonRepository(collectionName);
+      repository = createJsonWithFallback(collectionName);
     }
+  } else if (requestedAdapter === 'memory') {
+    repository = createMemoryRepository(collectionName);
   } else {
-    repository = createJsonRepository(collectionName);
+    repository = createJsonWithFallback(collectionName);
   }
 
   repositories.set(collectionName, repository);
